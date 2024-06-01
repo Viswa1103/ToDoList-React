@@ -5,12 +5,10 @@ import Footer from './Footer';
 import Header from './Header';
 
 function App() {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState(JSON.parse(localStorage.getItem('Todo_List')));
 
   useEffect(() => {
     document.title = "To Do List"
-    const savedItems = JSON.parse(localStorage.getItem('Todo_List')) || [];
-    setItems(savedItems);
   }, []);
 
   const addItem = (item) => {
